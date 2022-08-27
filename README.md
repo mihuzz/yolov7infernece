@@ -1,4 +1,4 @@
-Source from 
+Source from:   
 https://github.com/WongKinYiu/yolov7  train model  
 https://github.com/Linaom1214/TensorRT-For-YOLO-Series convert to trt engine and make infer sample
 
