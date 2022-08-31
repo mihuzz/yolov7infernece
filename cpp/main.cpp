@@ -4,10 +4,10 @@ using namespace std;
 int main(int argc, char** argv){
 
 
-        std::string model_path = "/home/mih/PycharmProjects/yodarkness7/venv/lib/python3.8/site-packages/tensorrt-python/yolov7-tiny-nms.trt";
-        std::string model_path2 = "/home/mih/PycharmProjects/yodarkness7/venv/lib/python3.8/site-packages/TensorRT-For-YOLO-Series/yolov7-tiny-int8.trt";
+        std::string model_path = "/your/path/to/yolov7-tiny-nms.trt";
+        
 
-        std::string video_path = "/home/mih/Видео/yoloVideo/TestYolo.mp4";
+        std::string video_path = "/path/to/video.mp4";
 
         float* Boxes = new float[4000];
         float* Scores = new float[3000];
