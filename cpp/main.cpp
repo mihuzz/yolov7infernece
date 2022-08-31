@@ -25,7 +25,7 @@ int main(int argc, char** argv){
 
         auto MyVideoSize = cv::Size(cap.get(cv::CAP_PROP_FRAME_WIDTH), cap.get(cv::CAP_PROP_FRAME_HEIGHT));
 
-        cv::VideoWriter myvideo("/way/to/save/video.mp4",fourcc,100, MyVideoSize);
+        cv::VideoWriter myvideo("/path/to/save/video.mp4",fourcc,100, MyVideoSize);
         double t_tick = 0;
         double fps = 0;
 
