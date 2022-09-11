@@ -14,7 +14,7 @@ See https://github.com/WongKinYiu/yolov7#export for more info.
 # Pytorch Yolov7 -> ONNX with grid, EfficientNMS plugin and dynamic batch size
 python export.py --weights ./yolov7.pt --grid --end2end --dynamic-batch --simplify --topk-all 100 --iou-thres 0.65 --conf-thres 0.35 --img-size 640 640
 # ONNX -> TensorRT with trtexec and docker
-docker run -it --rm --gpus=all nvcr.io/nvidia/tensorrt:22.06-py3
+docker run -it --rm --gpus=all nvcr.io/nvidia/tensorrt:22.07-py3
 # Copy onnx -> container: docker cp yolov7.onnx <container-id>:/workspace/
 # Export with FP16 precision, min batch 1, opt batch 8 and max batch 8
 ./tensorrt/bin/trtexec --onnx=yolov7.onnx --minShapes=images:1x3x640x640 --optShapes=images:8x3x640x640 --maxShapes=images:8x3x640x640 --fp16 --workspace=4096 --saveEngine=yolov7-fp16-1x8x8.engine --timingCacheFile=timing.cache
@@ -23,7 +23,7 @@ docker run -it --rm --gpus=all nvcr.io/nvidia/tensorrt:22.06-py3
 # Copy engine -> host: docker cp <container-id>:/workspace/yolov7-fp16-1x8x8.engine .
 ```
 
-Example output of test with RTX 3090.
+Example output of test with RTX 3070.
 
 ```
 [I] === Performance summary ===
@@ -82,7 +82,7 @@ triton-deploy/
 ## Start Triton Inference Server
 
 ```
-docker run --gpus all --rm --ipc=host --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 -p8000:8000 -p8001:8001 -p8002:8002 -v$(pwd)/triton-deploy/models:/models nvcr.io/nvidia/tritonserver:22.06-py3 tritonserver --model-repository=/models --strict-model-config=false --log-verbose 1
+docker run --gpus all --rm --ipc=host --shm-size=1g --ulimit memlock=-1 --ulimit stack=67108864 -p8000:8000 -p8001:8001 -p8002:8002 -v$(pwd)/triton-deploy/models:/models nvcr.io/nvidia/tritonserver:22.07-py3 tritonserver --model-repository=/models --strict-model-config=false --log-verbose 1
 ```
 
 In the log you should see:
@@ -104,7 +104,7 @@ Performance numbers @ RTX 3090 + AMD Ryzen 9 5950X
 Example test for 16 concurrent clients using shared memory, each with batch size 1 requests:
 
 ```bash
-docker run -it --ipc=host --net=host nvcr.io/nvidia/tritonserver:22.06-py3-sdk /bin/bash
+docker run -it --ipc=host --net=host nvcr.io/nvidia/tritonserver:22.07-py3-sdk /bin/bash
 
 ./install/bin/perf_analyzer -m yolov7 -u 127.0.0.1:8001 -i grpc --shared-memory system --concurrency-range 16
 
