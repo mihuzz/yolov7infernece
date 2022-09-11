@@ -47,13 +47,12 @@ Example output of test with RTX 3070.
 See [Triton Model Repository Documentation](https://github.com/triton-inference-server/server/blob/main/docs/model_repository.md#model-repository) for more info.
 
 ```bash
-```
 # Create folder structure
 mkdir -p triton-deploy/models/yolov7/1/
 touch triton-deploy/models/yolov7/config.pbtxt
 # Place model
 mv yolov7-fp16-1x8x8.engine triton-deploy/models/yolov7/1/model.plan
-
+```
 
 ## Model Configuration
 
