@@ -138,10 +138,11 @@ python3 client.py video_device 0 -o /way/to/save/data.mp4
 
 ```
 $ python3 client.py --help
-usage: client.py [-h] [-m MODEL] [--width WIDTH] [--height HEIGHT] [-u URL] [-o OUT] [-f FPS] [-i] [-v] [-t CLIENT_TIMEOUT] [-s] [-r ROOT_CERTIFICATES] [-p PRIVATE_KEY] [-x CERTIFICATE_CHAIN] {dummy,image,video} [input]
+usage: client.py [-h] [-m MODEL] [--width WIDTH] [--height HEIGHT] [-u URL] [-o OUT] [-f FPS] [-i] [-v] [-t CLIENT_TIMEOUT] [-s] [-r ROOT_CERTIFICATES] [-p PRIVATE_KEY] [-x CERTIFICATE_CHAIN] {dummy,image,video,video_device} [input]
 
 positional arguments:
-  {dummy,image,video}   Run mode. 'dummy' will send an emtpy buffer to the server to test if inference works. 'image' will process an image. 'video' will process a video.
+  {dummy,image,video,video_device}
+                        Run mode. 'dummy' will send an emtpy buffer to the server to test if inference works. 'image' will process an image. 'video' will process a video. 'video_device' will process a video from device.
   input                 Input file to load from in image or video mode
 
 optional arguments:
@@ -164,4 +165,5 @@ optional arguments:
                         File holding PEM-encoded private key, default is none
   -x CERTIFICATE_CHAIN, --certificate-chain CERTIFICATE_CHAIN
                         File holding PEM-encoded certicate chain default is none
+
 ```
