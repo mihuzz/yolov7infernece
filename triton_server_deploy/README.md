@@ -105,10 +105,6 @@ Performance numbers @ RTX 3070 + 11th Gen Intel® Core™ i9-11900KF @ 3.50GHz �
 
 Throughput for 16 clients with batch size 1 is the same as for a single thread running the engine at 16 batch size locally thanks to Triton [Dynamic Batching Strategy](https://github.com/triton-inference-server/server/blob/main/docs/model_configuration.md#dynamic-batcher). Result without dynamic batching (disable in model configuration) considerably worse:
 
-```bash
-# Result (truncated)
-Concurrency: 16, throughput: 335.587 infer/sec, latency 47616 usec
-```
 
 ## How to run model in your code
 
