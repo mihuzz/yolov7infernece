@@ -128,7 +128,7 @@ pip3 install tritonclient[all] opencv-python
 python3 client.py image data/dog.jpg
 ```
 
-![exemplary output result](data/dog_result.jpg)
+
 
 ```
 $ python3 client.py --help
