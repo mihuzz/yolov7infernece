@@ -125,7 +125,10 @@ Example client can be found in client.py. It can run dummy input, images and vid
 
 ```bash
 pip3 install tritonclient[all] opencv-python
-python3 client.py image data/dog.jpg
+python3 client.py image /path/to/your/data
+
+if you want to use webcam or other devices
+python3 client.py video_device 0 -o /way/to/save/data.mp4
 ```
 
 
