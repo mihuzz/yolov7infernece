@@ -26,19 +26,21 @@ docker run -it --rm --gpus=all nvcr.io/nvidia/tensorrt:22.07-py3
 Example output of test with RTX 3070.
 
 ```
-[I] === Performance summary ===
-[I] Throughput: 73.4985 qps
-[I] Latency: min = 14.8578 ms, max = 15.8344 ms, mean = 15.07 ms, median = 15.0422 ms, percentile(99%) = 15.7443 ms
-[I] End-to-End Host Latency: min = 25.8715 ms, max = 28.4102 ms, mean = 26.672 ms, median = 26.6082 ms, percentile(99%) = 27.8314 ms
-[I] Enqueue Time: min = 0.793701 ms, max = 1.47144 ms, mean = 1.2008 ms, median = 1.28644 ms, percentile(99%) = 1.38965 ms
-[I] H2D Latency: min = 1.50073 ms, max = 1.52454 ms, mean = 1.51225 ms, median = 1.51404 ms, percentile(99%) = 1.51941 ms
-[I] GPU Compute Time: min = 13.3386 ms, max = 14.3186 ms, mean = 13.5448 ms, median = 13.5178 ms, percentile(99%) = 14.2151 ms
-[I] D2H Latency: min = 0.00878906 ms, max = 0.0172729 ms, mean = 0.0128844 ms, median = 0.0125732 ms, percentile(99%) = 0.0166016 ms
-[I] Total Host Walltime: 3.04768 s
-[I] Total GPU Compute Time: 3.03404 s
-[I] Explanations of the performance metrics are printed in the verbose logs.
-```
-Note: 73.5 qps x batch 8 = 588 fps @ ~15ms latency.
+[09/11/2022-22:54:32] [I] === Performance summary ===
+[09/11/2022-22:54:32] [I] Throughput: 1004.27 qps
+[09/11/2022-22:54:32] [I] Latency: min = 1.17474 ms, max = 4.4541 ms, mean = 1.20348 ms, median = 1.1897 ms, percentile(99%) = 1.50061 ms
+[09/11/2022-22:54:32] [I] Enqueue Time: min = 0.303711 ms, max = 4.79843 ms, mean = 0.336177 ms, median = 0.337891 ms, percentile(99%) = 0.387817 ms
+[09/11/2022-22:54:32] [I] H2D Latency: min = 0.198151 ms, max = 0.228271 ms, mean = 0.201239 ms, median = 0.200623 ms, percentile(99%) = 0.213379 ms
+[09/11/2022-22:54:32] [I] GPU Compute Time: min = 0.965637 ms, max = 4.24448 ms, mean = 0.993252 ms, median = 0.97998 ms, percentile(99%) = 1.29016 ms
+[09/11/2022-22:54:32] [I] D2H Latency: min = 0.00549316 ms, max = 0.0202637 ms, mean = 0.00898109 ms, median = 0.00891113 ms, percentile(99%) = 0.0114746 ms
+[09/11/2022-22:54:32] [I] Total Host Walltime: 3.0022 s
+[09/11/2022-22:54:32] [I] Total GPU Compute Time: 2.99465 s
+[09/11/2022-22:54:32] [W] * GPU compute time is unstable, with coefficient of variance = 12.3891%.
+[09/11/2022-22:54:32] [W]   If not already in use, locking GPU clock frequency or adding --useSpinWait may improve the stability.
+[09/11/2022-22:54:32] [I] Explanations of the performance metrics are printed in the verbose logs.
+[09/11/2022-22:54:32] [I] 
+&&&& PASSED TensorRT.trtexec [TensorRT v8401] # ./tensorrt/bin/trtexec --loadEngine=yolov7-fp16-1x8x8.engine
+
 
 ## Model Repository
 
