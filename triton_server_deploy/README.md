@@ -40,7 +40,7 @@ Example output of test with RTX 3070.
 [09/11/2022-22:54:32] [I] Explanations of the performance metrics are printed in the verbose logs.
 [09/11/2022-22:54:32] [I] 
 &&&& PASSED TensorRT.trtexec [TensorRT v8401] # ./tensorrt/bin/trtexec --loadEngine=yolov7-fp16-1x8x8.engine
-
+```
 
 ## Model Repository
 
