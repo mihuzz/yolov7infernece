@@ -97,15 +97,6 @@ In the log you should see:
 +--------+---------+--------+
 ```
 
-## Performance with Model Analyzer
-
-See [Triton Model Analyzer Documentation](https://github.com/triton-inference-server/server/blob/main/docs/model_analyzer.md#model-analyzer) for more info.
-
-Performance numbers @ RTX 3070 + 11th Gen Intel® Core™ i9-11900KF @ 3.50GHz × 16 
-
-Throughput for 16 clients with batch size 1 is the same as for a single thread running the engine at 16 batch size locally thanks to Triton [Dynamic Batching Strategy](https://github.com/triton-inference-server/server/blob/main/docs/model_configuration.md#dynamic-batcher). Result without dynamic batching (disable in model configuration) considerably worse:
-
-
 ## How to run model in your code
 
 Example client can be found in client.py. It can run dummy input, images and videos.
