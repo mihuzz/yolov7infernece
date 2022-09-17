@@ -105,16 +105,16 @@ def postprocess(predictions, ratio):
     return dets
 
 
-def get_fps(self):
-    # warmup
-    import time
-    img = np.ones((1, 3, self.imgsz[0], self.imgsz[1]))
-    img = np.ascontiguousarray(img, dtype=np.float32)
-    for _ in range(20):
-        _ = self.infer(img)
-    t1 = time.perf_counter()
-    _ = self.infer(img)
-    print(1 / (time.perf_counter() - t1), 'FPS')
+# def get_fps(self):
+#     # warmup
+#     import time
+#     img = np.ones((1, 3, self.imgsz[0], self.imgsz[1]))
+#     img = np.ascontiguousarray(img, dtype=np.float32)
+#     for _ in range(20):
+#         _ = self.infer(img)
+#     t1 = time.perf_counter()
+#     _ = self.infer(img)
+#     print(1 / (time.perf_counter() - t1), 'FPS')
 
 
 def nms(boxes, scores, nms_thr):
